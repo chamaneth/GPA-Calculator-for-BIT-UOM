@@ -1,4 +1,5 @@
 📌 GPA Calculator for BIT (UOM)
+<br>
 This is a React-based GPA Calculator for Bachelor of Information Technology (BIT) - University of Moratuwa (UOM). The application allows students to calculate their GPA based on the grading system and credit values for each course module.
 
 ✨ Features
