@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIT GPA Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>GPA Calculator BIT (UOM) </h1>
+    </header>
+    <div id="root"></div>
+    <div class="grading-system">
+        <h2>Grading System (Amended)</h2>
+        <table class="grading-system-table">
+            <thead>
+                <tr>
+                    <th>Benchmark Percentage</th>
+                    <th>Grade</th>
+                    <th>Grade Point</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>85 and above</td>
+                    <td>A+</td>
+                    <td>4.0</td>
+                    <td>Excellent</td>
+                </tr>
+                <tr>
+                    <td>75 to 84</td>
+                    <td>A</td>
+                    <td>4.0</td>
+                    <td>Excellent</td>
+                </tr>
+                <tr>
+                    <td>70 to 74</td>
+                    <td>A-</td>
+                    <td>3.7</td>
+                    <td>Excellent</td>
+                </tr>
+                <tr>
+                    <td>65 to 69</td>
+                    <td>B+</td>
+                    <td>3.3</td>
+                    <td>Good</td>
+                </tr>
+                <tr>
+                    <td>60 to 64</td>
+                    <td>B</td>
+                    <td>3.0</td>
+                    <td>Good</td>
+                </tr>
+                <tr>
+                    <td>55 to 59</td>
+                    <td>B-</td>
+                    <td>2.7</td>
+                    <td>Good</td>
+                </tr>
+                <tr>
+                    <td>50 to 54</td>
+                    <td>C+</td>
+                    <td>2.3</td>
+                    <td>Pass</td>
+                </tr>
+                <tr>
+                    <td>45 to 49</td>
+                    <td>C</td>
+                    <td>2.0</td>
+                    <td>Pass</td>
+                </tr>
+                <tr>
+                    <td>40 to 44</td>
+                    <td>C-</td>
+                    <td>1.7</td>
+                    <td>Weak Pass</td>
+                </tr>
+                <tr>
+                    <td>35 to 39</td>
+                    <td>D</td>
+                    <td>1.0</td>
+                    <td>Conditional Pass</td>
+                </tr>
+                <tr>
+                    <td>34 and below</td>
+                    <td>I</td>
+                    <td>0.0</td>
+                    <td>Incomplete</td>
+                </tr>
+                <tr>
+                    <td>-</td>
+                    <td>F</td>
+                    <td>0.0</td>
+                    <td>Fail</td>
+                </tr>
+                <tr>
+                    <td>-</td>
+                    <td>T</td>
+                    <td>-</td>
+                    <td>Absent</td>
+                </tr>
+                <tr>
+                    <td>-</td>
+                    <td>X</td>
+                    <td>-</td>
+                    <td>Exemption Granted</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <div class="grading-rules">
+            <h2>Grading Rules</h2>
+            <ul>
+                <li><strong>Grade D or above</strong> is required to earn credit for a course module.</li>
+                <li>A student satisfying continuous assessment requirements and failing the end-of-semester examination receives an <strong>incomplete grade (I)</strong>.</li>
+                <li>A student receiving an <strong>F grade</strong> must repeat both continuous assessment (CA) and the end-of-semester examination (SE) components. The maximum grade awarded for a repeating course module will be a <strong>C</strong> and it will be used for calculating the Semester Grade Point Average (SGPA).</li>
+                <li><strong>Grade T</strong> signifies that a student has successfully completed the continuous assessments component, but has been absent for the final examination. The student is allowed to sit for the examination as a first-attempt candidate at a subsequent sitting.</li>
+                <li>By repeating only the <strong>end-of-semester examination (SE)</strong>, the grades I, D, or C- can be improved up to a <strong>C grade</strong> and considered for calculating the Semester Grade Point Average (SGPA).</li>
+                <li>There is no restriction in upgrading the <strong>grade T</strong> after sitting the end-of-semester examination.</li>
+                <li>Only the <strong>highest grade</strong> achieved for each course module will be entered on the student’s permanent record.</li>
+            </ul>
+        </div>
+        
+    </div>
+    <div class="award-of-classes">
+        <h3>GPA for Awarding of Classes</h3>
+        <p>Only the GPA achieved at Level 3 will be used in the awarding of classes, as shown in Table 03:</p>
+    
+        <table class="award-of-classes-table">
+            <thead>
+                <tr>
+                    <th>Level 3 GPA</th>
+                    <th>Academic Standing</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>3.70 or above</td>
+                    <td>First Class</td>
+                </tr>
+                <tr>
+                    <td>3.30 - 3.69</td>
+                    <td>Second Class - Upper Division</td>
+                </tr>
+                <tr>
+                    <td>3.00 - 3.29</td>
+                    <td>Second Class - Lower Division</td>
+                </tr>
+                <tr>
+                    <td>2.00 - 2.99</td>
+                    <td>Pass</td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <h3><strong>Dean's List</strong></h3>
+        <p>A student who obtains a Semester Grade Point Average of 3.80 or greater in any one semester will be recommended by the Board of Examiners to be included in the Dean’s List. This achievement will also be noted on the student’s academic transcript.</p>
+    </div>
+        
+    
+    <script type="text/babel">
+        function GpaCalculator() {
+            const [courses, setCourses] = React.useState([{ id: 1, grade: '', credits: '', moduleName: '' }]);
+            
+            const gradePoints = {
+                'A+': 4.2, 'A': 4.0, 'A-': 3.7,
+                'B+': 3.3, 'B': 3.0, 'B-': 2.7,
+                'C+': 2.3, 'C': 2.0, 'C-': 1.5,
+                'D': 1.0, 'I': 0.0, 'F': 0.0
+            };
+
+            const calculateGPA = () => {
+                let totalCredits = 0;
+                let totalPoints = 0;
+                courses.forEach(course => {
+                    if (course.grade && course.credits) {
+                        totalCredits += parseFloat(course.credits);
+                        totalPoints += gradePoints[course.grade] * parseFloat(course.credits);
+                    }
+                });
+                return totalCredits > 0 ? (totalPoints / totalCredits).toFixed(2) : '0.00';
+            };
+
+            const addCourse = () => {
+                setCourses([...courses, { id: courses.length + 1, grade: '', credits: '', moduleName: '' }]);
+            };
+
+            const handleChange = (id, field, value) => {
+                const updatedCourses = courses.map(course =>
+                    course.id === id ? { ...course, [field]: value } : course
+                );
+                setCourses(updatedCourses);
+            };
+
+            const removeCourse = (id) => {
+                const updatedCourses = courses.filter(course => course.id !== id);
+                setCourses(updatedCourses);
+            };
+
+            return (
+                <div className="gpa-calculator">
+                    {courses.map((course) => (
+                        <div className="course-row" key={course.id}>
+                            <input
+                                type="text"
+                                placeholder="Module Name"
+                                value={course.moduleName}
+                                onChange={(e) => handleChange(course.id, 'moduleName', e.target.value)}
+                            />
+                            <input
+                                type="number"
+                                placeholder="Credits"
+                                value={course.credits}
+                                onChange={(e) => handleChange(course.id, 'credits', e.target.value)}
+                            />
+                            <select value={course.grade} onChange={(e) => handleChange(course.id, 'grade', e.target.value)}>
+                                <option value="">Select Grade</option>
+                                {Object.keys(gradePoints).map(grade => (
+                                    <option key={grade} value={grade}>{grade}</option>
+                                ))}
+                            </select>
+                            <button onClick={() => removeCourse(course.id)}>Remove</button>
+                        </div>
+                    ))}
+                    <button onClick={addCourse}>Add Course</button>
+                    <h3>GPA: {calculateGPA()}</h3>
+                    <hr />
+                    {calculateGPA() >= 3.80 ? <h3>Dean's List</h3> :
+                        calculateGPA() >= 2.00 ? <h3>Pass</h3> :
+                        <h3>Fail</h3>}
+                </div>
+            );
+        }
+
+        ReactDOM.createRoot(document.getElementById("root")).render(<GpaCalculator />);
+    </script>
+    <footer>
+        <p>&copy; 2021 <a href="https://www.codl.lk/">BIT</a> | Developed by BIT Students</a></p>
+    </footer>
+</body>
+</html>
